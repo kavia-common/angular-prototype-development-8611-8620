@@ -14,7 +14,7 @@
         e.preventDefault();
         const expanded = moreItem.getAttribute('aria-expanded') === 'true';
         moreItem.setAttribute('aria-expanded', String(!expanded));
-        // Simple visual toggle by rotating caret or changing background
+        // Simple visual toggle by toggling class
         const li = moreItem.closest('.ofp-menu-item');
         if (li) li.classList.toggle('is-open', !expanded);
       });
@@ -43,7 +43,7 @@
     selects.forEach(s => {
       s.addEventListener('click', () => {
         // eslint-disable-next-line no-console
-        console.log('[prototype] Select clicked: ', s.textContent?.trim());
+        console.log('[prototype] Select clicked: ', s.textContent ? s.textContent.trim() : '');
       });
     });
   }

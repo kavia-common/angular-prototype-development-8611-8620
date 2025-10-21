@@ -23,6 +23,7 @@ html, body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 }
 
+/* Root frame: 1920x1080 from JSON */
 .ofp-screen {
   position: relative;
   width: 1920px;
@@ -50,12 +51,13 @@ html, body {
   top: 0;
   width: 220px;
   height: 1080px;
-  background: #0B1220; /* dark nav similar to many admin sidebars */
+  background: #0B1220; /* dark nav */
   color: #E5E7EB;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 2;
 }
 
 /* Logo (id 1:1770 / 1:1771) */
@@ -96,7 +98,7 @@ html, body {
   grid-template-columns: 24px 1fr auto;
   align-items: center;
   gap: 12px;
-  height: 48px; /* exactly as JSON items */
+  height: 48px; /* from JSON items */
   padding: 0 12px 0 8px;
   border-radius: 8px;
   color: #E5E7EB;
@@ -165,7 +167,7 @@ html, body {
   padding: 0 24px;
   border-bottom: 1px solid var(--ofp-border);
   background: var(--ofp-surface);
-  z-index: 2;
+  z-index: 3;
 }
 .ofp-icon-btn {
   width: 48px;
@@ -189,6 +191,7 @@ html, body {
   color: var(--ofp-text);
   background: #F9FAFB;
   border: 1px solid var(--ofp-border);
+  user-select: none;
 }
 .ofp-tab.active {
   background: #EEF2FF;
@@ -338,6 +341,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  z-index: 4;
 }
 .ofp-avatar {
   width: 24px;
@@ -366,4 +370,9 @@ html, body {
 a:focus, button:focus, .ofp-select:focus, .ofp-icon-btn:focus {
   outline: 2px solid var(--ofp-secondary);
   outline-offset: 2px;
+}
+
+/* Optional open state for "More" */
+.ofp-menu-item.is-open {
+  background: rgba(255,255,255,0.08);
 }
